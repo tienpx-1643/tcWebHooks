@@ -13,6 +13,7 @@ import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.impl.client.BasicAuthCache;
+import org.apache.http.client.methods.HttpPost;
 
 import webhook.teamcity.auth.AbstractWebHookAuthenticator;
 import webhook.teamcity.auth.WebHookAuthenticator;
@@ -24,7 +25,7 @@ public class BearerAuthenticator extends AbstractWebHookAuthenticator implements
 		public static final String KEY_REALM = "realm";
 		
 		@Override
-		public void addAuthentication(CredentialsProvider credentialsProvider, HttpClientContext httpClientContext, String url) {
+		public void addAuthentication(CredentialsProvider credentialsProvider, HttpClientContext httpClientContext, String url, HttpPost httppost) {
 			if (config.getParameters().containsKey(KEY_BEARER)){
 					URI uri = URI.create(url);
 					RegistryBuilder<AuthSchemeProvider> registryBuilder = RegistryBuilder.create();
