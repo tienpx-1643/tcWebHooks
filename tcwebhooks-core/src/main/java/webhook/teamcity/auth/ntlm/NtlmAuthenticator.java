@@ -12,6 +12,7 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.impl.auth.NTLMScheme;
 import org.apache.http.impl.client.BasicAuthCache;
+import org.apache.http.client.methods.HttpPost;
 
 import webhook.teamcity.auth.AbstractWebHookAuthenticator;
 import webhook.teamcity.auth.WebHookAuthenticator;
@@ -24,7 +25,7 @@ public class NtlmAuthenticator extends AbstractWebHookAuthenticator implements W
 		public static final String KEY_DOMAIN = "domain";
 		
 		@Override
-		public void addAuthentication(CredentialsProvider credentialsProvider, HttpClientContext httpClientContext, String url) {
+		public void addAuthentication(CredentialsProvider credentialsProvider, HttpClientContext httpClientContext, String url, HttpPost httppost) {
 			if (config.getParameters().containsKey(KEY_USERNAME) && config.getParameters().containsKey(KEY_PASS)){
 					URI uri = URI.create(url);
 					AuthScope scope = new AuthScope(uri.getHost(), uri.getPort());

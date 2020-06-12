@@ -136,7 +136,7 @@ public class WebHookImpl implements WebHook {
 				httppost.setEntity(entity);
 			}
 			if(authenticator != null){
-				authenticator.addAuthentication(getCredentialsProvider(), context, url);
+				authenticator.addAuthentication(getCredentialsProvider(), context, url, httppost);
 				requestConfig = RequestConfig.copy(requestConfig).setTargetPreferredAuthSchemes(Arrays.asList(authenticator.getWwwAuthenticateChallengePrefix())).build();
 			}
 			

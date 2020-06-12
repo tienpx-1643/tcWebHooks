@@ -166,6 +166,11 @@
 		class="webhook.teamcity.auth.basic.UsernamePasswordAuthenticatorFactory"
 		init-method="register" 
 		/>
+
+	<bean id="chatworkAuthenticatorFactory"
+		class="webhook.teamcity.auth.chatwork.ChatworkAuthenticatorFactory"
+		init-method="register" 
+		/>
 		
 	<bean id="bearerAuthenticatorFactory"
 		class="webhook.teamcity.auth.bearer.BearerAuthenticatorFactory"

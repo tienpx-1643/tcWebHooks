@@ -91,6 +91,11 @@
 		init-method="register" 
 		/>
 
+	<bean id="chatworkAuthenticatorFactory"
+		class="webhook.teamcity.auth.chatwork.ChatworkAuthenticatorFactory"
+		init-method="register" 
+		/>
+
 	<bean id="webHookPayloadNameValuePairs"
 		class="webhook.teamcity.payload.format.WebHookPayloadNameValuePairs"
 		init-method="register">
